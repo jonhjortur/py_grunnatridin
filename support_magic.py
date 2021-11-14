@@ -82,6 +82,6 @@ def var_info(var, box=True, is_list_of_vars=False, isl=False):
         _printer(var)
         for item in var:
             _printer(item, iter_list = True, list_name = _parse_var_name(var), list_idx = counter)
-            counter += 1
+            counter += 1 # Já, ég ætla að gera þetta svona!! Og ekki vera með kjaft!
     else:
         _printer(var, box, is_list_of_vars, isl)
