@@ -77,11 +77,9 @@ def var_info(var, box=True, is_list_of_vars=False, isl=False):
     if isinstance(var, list) and is_list_of_vars:
         for v in var:
             _printer(v, box, is_list_of_vars, isl)
-    elif isinstance(var, list):
-        counter = 0
+    elif isinstance(var, (list, tuple)):
         _printer(var)
-        for item in var:
-            _printer(item, iter_list = True, list_name = _parse_var_name(var), list_idx = counter)
-            counter += 1 # Já, ég ætla að gera þetta svona!! Og ekki vera með kjaft!
+        for idx, item in enumerate(var):
+            _printer(item, iter_list = True, list_name = _parse_var_name(var), list_idx = idx)
     else:
         _printer(var, box, is_list_of_vars, isl)
