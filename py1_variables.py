@@ -6,6 +6,12 @@ from support_magic import var_info
 # Variable er nafn á minnisplássi í tölvunni
 # Staður til að geyma og vísa í gildi/gögn sem við viljum nota á meðan forritið keyrir
 
+# Tala um:
+    # Python er túlkað mál...munurinn á því og þýddu.
+    # Muna að minna á að það er ekki nauðsynlegt að skilja nema brot af því sem við erum að tala um hér.
+    # Mikilvægast að hafa séð það til að skilja samhengið seinna.
+    # Eina sem þarf að taka frá þessu myndbandi er það að það er hægt að geima stuff í breytum og vinna svo með það.
+
 # 1
 #################
 # Numeric types #
