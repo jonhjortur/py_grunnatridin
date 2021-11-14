@@ -74,9 +74,6 @@ print("my_list[0]:", my_list[0])
 my_list_at_0 = my_list[0]
 var_info(my_list_at_0)
 
-my_list_at_2 = my_list[2]
-print("my_list[2]:", my_list[2])
-var_info(my_list_at_2)
 
 # 7
 # tuple
