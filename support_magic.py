@@ -10,14 +10,13 @@ def _parse_var_name(var):
         return [k for k, v in f.frame.f_locals.items() if v is var][0]
 
 
-def _printer(var, box=True, is_list_of_vars=False, isl=False, iter_list = False, list_name = "", list_idx = 0):
-    s_var_name = _parse_var_name(var) if not iter_list else f'{list_name}[{list_idx}]'
+def _printer(var, box=True, is_list_of_vars=False, isl=False,
+             iter_list=False, iter_name="", list_idx=0, iter_set=False):
+    s_var_name = _parse_var_name(var) if not iter_list else f'{iter_name}[{list_idx}]'\
+        if not iter_set else f'{iter_name} @ {list_idx}'
     s_var_addr = hex(id(var))
     var_type = type(var)
     var_size = sys.getsizeof(var)
-
-
-
 
     s_name = f'Name: {s_var_name}' \
         if not isl else f'Nafn: {s_var_name}'
@@ -43,13 +42,13 @@ def _printer(var, box=True, is_list_of_vars=False, isl=False, iter_list = False,
 
     s_new_line = "\n"
     s_side_symbol = "|"
-    s_top_symbol = "*" # Overscore -> ‾
+    s_top_symbol = "*"  # Overscore -> ‾
     s_bottom_symbol = "*"
     s_front_symbol = f'{s_side_symbol} ' * box
     s_back_symbol = f' {s_side_symbol}' * box
 
     s_top_box_line = f'{s_new_line * box}{s_front_symbol}' \
-                     f'{s_title * box} {s_top_symbol * (i_box_top_symbols) * box}{s_side_symbol * box}{s_new_line}'
+                     f'{s_title * box} {s_top_symbol * i_box_top_symbols * box}{s_side_symbol * box}{s_new_line}'
     s_bottom_box_line = f'{s_bottom_symbol * i_box_width * box}{s_new_line * box}'
 
     s_name_line = f'{s_front_symbol}{s_name}' \
@@ -73,13 +72,15 @@ def _printer(var, box=True, is_list_of_vars=False, isl=False, iter_list = False,
 
 def var_info(var, box=True, is_list_of_vars=False, isl=False):
 
-
     if isinstance(var, list) and is_list_of_vars:
         for v in var:
             _printer(v, box, is_list_of_vars, isl)
     elif isinstance(var, (list, tuple)):
         _printer(var)
         for idx, item in enumerate(var):
-            _printer(item, iter_list = True, list_name = _parse_var_name(var), list_idx = idx)
+            _printer(item, iter_list=True, iter_name=_parse_var_name(var), list_idx=idx)
+    elif isinstance(var, set):
+        for idx, item in enumerate(var):
+            _printer(item, iter_list=True, iter_name=_parse_var_name(var), list_idx=idx, iter_set=True)
     else:
         _printer(var, box, is_list_of_vars, isl)
