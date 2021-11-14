@@ -1,5 +1,5 @@
-# This code is not intended to be beautiful or clever, it should work the way I want it...
-# ...which it does!!
+# This code is not intended to be beautiful, clever or well structured.
+# It should work the way I want it...which it does...until proven otherwise!
 
 import inspect
 import sys
