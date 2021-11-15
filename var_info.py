@@ -81,20 +81,19 @@ def _print(box, iter_dict, name, value, memory_address, datatype, instance_size)
 
 
 def information(var, box=True, is_list_of_vars=False):
-
     if isinstance(var, list) and is_list_of_vars:
         for v in var:
             _assemble(v, box)
     elif isinstance(var, (list, tuple)):
-        _assemble(var)
+        _assemble(var, box)
         for idx, item in enumerate(var):
-            _assemble(item, iter_list=True, iter_name=_parse_var_name(var), list_idx=idx)
+            _assemble(item, box, iter_list=True, iter_name=_parse_var_name(var), list_idx=idx)
     elif isinstance(var, set):
         for idx, item in enumerate(var):
-            _assemble(item, iter_name=_parse_var_name(var), list_idx=idx, iter_set=True)
+            _assemble(item, box, iter_name=_parse_var_name(var), list_idx=idx, iter_set=True)
     elif isinstance(var, dict):
-        print(var)
+        _assemble(var)
         for k, v in var.items():
-            _assemble(v, iter_name=k, iter_dict=True)
+            _assemble(v, box, iter_name=k, iter_dict=True)
     else:
         _assemble(var, box)

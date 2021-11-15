@@ -38,12 +38,12 @@ my_complex_number = 2+3j
 print("my_complex_number:", my_complex_number)
 information(my_complex_number)
 # 3.1
-print("my_complex_number.real:", my_complex_number.real)
-my_complex_real = my_complex_number.real
-information(my_complex_real)
-print("my_complex_number.imag:", my_complex_number.imag)
-my_complex_imag = my_complex_number.imag
-information(my_complex_imag)
+# print("my_complex_number.real:", my_complex_number.real)
+# my_complex_real = my_complex_number.real
+# information(my_complex_real)
+# print("my_complex_number.imag:", my_complex_number.imag)
+# my_complex_imag = my_complex_number.imag
+# information(my_complex_imag)
 
 
 # 4
@@ -68,21 +68,21 @@ my_string = "Þetta er strengur (string)"
 print("my_string:", my_string)
 information(my_string)
 
-6
-list
+# 6
+# list
 list_item = 2021
 #   Index 0      1         2      3   4          5   6
 my_list = [6.28, "Python", False, 15, list_item, 15, "15"]
 print("my_list:", my_list)
-information(my_list)
+information(my_list, False)
 # 6.1
 print("my_list[0]:", my_list[0])
 my_list_at_0 = my_list[0]
 information(my_list_at_0)
 
 
-7
-tuple
+# 7
+# tuple
 my_tuple = (6.28, "Python", "-1", 15, True, 15, "15")
 print("my_tuple:", my_tuple)
 information(my_tuple)
